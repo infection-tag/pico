@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 207.95, "left": 13.15, "attrs": {} },
+    { "type": "board-ds18b20", "id": "board-ds18b20-0", "top": 0, "left": 118, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "wokwi-lcd1602-0", "top": 89.83, "left": 131.2, "attrs": {} },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "wokwi-slide-potentiometer-0",
+      "top": 350.6,
+      "left": 210.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "wokwi-pir-motion-sensor-0",
+      "top": 645,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ir-receiver",
+      "id": "wokwi-ir-receiver-0",
+      "top": 645,
+      "left": 119,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "wokwi-analog-joystick-0",
+      "top": 860,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "wokwi-tm1637-7segment-0",
+      "top": 860,
+      "left": 128,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "wokwi-led-0", "top": 188.4, "left": -34.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP1", "wokwi-led-0:A", "green", [ "h0" ] ],
+    [ "wokwi-led-0:C", "pico:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
