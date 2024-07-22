@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": -3.25, "left": 3.55, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "wokwi-pir-motion-sensor-0",
+      "top": -140,
+      "left": -7.38,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "wokwi-led-0", "top": -32.4, "left": -53.8, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "wokwi-pushbutton-0",
+      "top": 140.6,
+      "left": -105.6,
+      "attrs": { "key": "1" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-led-0:A", "pico:GP1", "green", [ "v0" ] ],
+    [ "wokwi-led-0:C", "pico:GND.1", "green", [ "v0" ] ],
+    [ "wokwi-pir-motion-sensor-0:GND", "pico:GND.1", "black", [ "v0" ] ],
+    [ "wokwi-pir-motion-sensor-0:VCC", "pico:VSYS", "red", [ "v0" ] ],
+    [ "wokwi-pir-motion-sensor-0:OUT", "pico:GP4", "green", [ "v0" ] ],
+    [ "wokwi-pushbutton-0:2.r", "pico:GND.2", "violet", [ "h0" ] ],
+    [ "wokwi-pushbutton-0:1.r", "pico:GP2", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
