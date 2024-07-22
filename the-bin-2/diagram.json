@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "wokwi-tm1637-7segment-0",
+      "top": -115.24,
+      "left": -194.57,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "wokwi-led-0",
+      "top": 6,
+      "left": -101.4,
+      "attrs": { "flip": "1" }
+    },
+    { "type": "wokwi-ds1307", "id": "wokwi-ds1307-0", "top": 4.2, "left": 144.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-tm1637-7segment-0:GND", "pico:GND.1", "black", [ "h105.6", "v-28.8" ] ],
+    [ "pico:3V3", "wokwi-tm1637-7segment-0:VCC", "magenta", [ "h-15.34", "v-118.45" ] ],
+    [ "wokwi-tm1637-7segment-0:CLK", "pico:GP0", "red", [ "h57.6", "v99.25" ] ],
+    [ "wokwi-tm1637-7segment-0:DIO", "pico:GP1", "blue", [ "h0" ] ],
+    [ "wokwi-led-0:C", "pico:GP3", "limegreen", [ "v0" ] ],
+    [ "wokwi-ds1307-0:GND", "pico:GND.1", "black", [ "h0" ] ],
+    [ "wokwi-led-0:A", "pico:GND.2", "green", [ "v0" ] ],
+    [ "wokwi-ds1307-0:5V", "pico:3V3", "red", [ "h0" ] ],
+    [ "pico:GP26", "wokwi-ds1307-0:SCL", "yellow", [ "h0" ] ],
+    [ "pico:GP28", "wokwi-ds1307-0:SDA", "green", [ "h61.46", "v-31.75" ] ]
+  ],
+  "dependencies": {}
+}
