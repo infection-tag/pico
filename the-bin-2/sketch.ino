@@ -23,16 +23,6 @@ void setup() {
 
   rtc.begin();
 
-  // if (! rtc.isrunning()) {
-  //   Serial.println("RTC is NOT running, let's set the time!");
-  //   // When time needs to be set on a new device, or after a power loss, the
-  //   // following line sets the RTC to the date & time this sketch was compiled
-  //   rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-  //   // This line sets the RTC with an explicit date & time, for example to set
-  //   // January 21, 2014 at 3am you would call:
-  //   // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
-  // }
-
   // Serial1.println("Hello, Raspberry Pi Pico W!");
 }
 
@@ -41,11 +31,21 @@ DateTime now = rtc.now();
 
 void loop() {
   delay(1); // this speeds up the simulation
+  int hour = now.hour();
+  int minute = now.minute();
 
-  tm.display(0, ((now.hour(), DEC) / 10) % 10);
-  tm.display(1, (now.hour(), DEC) % 10);
-  tm.display(2, ((now.minute(), DEC) / 10) % 10);
-  tm.display(3, (now.minute(), DEC) % 10);
+  Serial1.print(hour);
+  Serial1.print(minute);
+
+  // tm.display(0, hour / 10);
+  // tm.display(1, hour % 10);
+  // tm.display(2, minute / 10);
+  // tm.display(3, minute % 10);
+
+  // tm.display(0, ((now.hour(), DEC) / 10) % 10);
+  // tm.display(1, (now.hour(), DEC) % 10);
+  // tm.display(2, ((now.minute(), DEC) / 10) % 10);
+  // tm.display(3, (now.minute(), DEC) % 10);
 
   // // print time, for debugging 
   // Serial.print("Current time: ");
