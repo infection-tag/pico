@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "wokwi-led-0",
+      "top": 104.4,
+      "left": -104.2,
+      "rotate": 270,
+      "attrs": { "flip": "", "color": "blue" }
+    },
+    { "type": "wokwi-ds1307", "id": "wokwi-ds1307-0", "top": 13.8, "left": 134.5, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 156.74,
+      "left": -182.17,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-led-0:A", "pico:GND.2", "purple", [ "h9.6", "v-54.35" ] ],
+    [ "wokwi-ds1307-0:5V", "pico:3V3", "red", [ "h0" ] ],
+    [ "pico:GP26", "wokwi-ds1307-0:SCL", "yellow", [ "h0" ] ],
+    [ "pico:GP28", "wokwi-ds1307-0:SDA", "magenta", [ "h32.66", "v-22.15" ] ],
+    [ "wokwi-ds1307-0:GND", "pico:GND.3", "white", [ "h-48", "v124.8", "h-89.95" ] ],
+    [ "oled1:VCC", "pico:3V3_EN", "orange", [ "v0" ] ],
+    [ "oled1:GND", "pico:GND.1", "black", [ "v0" ] ],
+    [ "oled1:SCL", "pico:GP2", "green", [ "v-115.2", "h131.15" ] ],
+    [ "wokwi-led-0:C", "pico:GP3", "limegreen", [ "v0.4", "h73.25" ] ],
+    [ "oled1:SDA", "pico:GP4", "cyan", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
