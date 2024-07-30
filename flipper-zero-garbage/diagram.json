@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "author": "Infection Tag",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 96.6, "left": 63.6, "attrs": {} },
+    { "type": "board-grove-oled-sh1107", "id": "oled1", "top": 287.77, "left": 3.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "oled1:GND.1", "mega:GND.2", "black", [ "h0" ] ],
+    [ "oled1:VCC", "mega:5V", "red", [ "h0" ] ],
+    [ "oled1:SCL.1", "mega:A5", "green", [ "h0" ] ],
+    [ "oled1:SDA", "mega:A4", "blue", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
